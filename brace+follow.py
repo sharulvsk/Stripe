@@ -1,9 +1,8 @@
-def expand_string(inp: str) -> list[str]:
+def expand_string(inp: str):
     output = []
 
     open_idx = inp.find('{')
     close_idx = inp.find('}')
-
     if open_idx == -1 or close_idx == -1 or close_idx < open_idx:
         output.append(inp)
         return output
@@ -11,8 +10,8 @@ def expand_string(inp: str) -> list[str]:
     pre = inp[:open_idx]
     suf = inp[close_idx + 1:]
     middle = inp[open_idx + 1:close_idx]
-    parts = middle.split(',')
 
+    parts = middle.split(",")
     if len(parts) < 2:
         output.append(inp)
         return output
@@ -23,7 +22,13 @@ def expand_string(inp: str) -> list[str]:
     return output
 
 
-inp = input()
-result = expand_string(inp)
-for s in result:
-    print(s)
+def main():
+    inp = input().strip()
+    result = expand_string(inp)
+
+    for s in result:
+        print(s)
+
+
+if __name__ == "__main__":
+    main()
