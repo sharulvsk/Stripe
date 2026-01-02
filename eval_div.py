@@ -1,11 +1,9 @@
 from collections import defaultdict
-
 def calcEquation(equations, values, queries):
     graph = defaultdict(dict)
     for (a, b), val in zip(equations, values):
         graph[a][b] = val
         graph[b][a] = 1 / val
-
     def dfs(curr, target, visited):
         if curr not in graph or target not in graph:
             return -1.0
@@ -19,12 +17,10 @@ def calcEquation(equations, values, queries):
             if res != -1.0:
                 return weight * res
         return -1.0
-
     results = []
     for a, b in queries:
         results.append(dfs(a, b, set()))
     return results
-
 def main():
     equations = [["a", "b"], ["b", "c"]]
     values = [2.0, 3.0]
@@ -32,6 +28,5 @@ def main():
 
     results = calcEquation(equations, values, queries)
     print(results)
-
 if __name__ == "__main__":
     main()

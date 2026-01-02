@@ -5,13 +5,10 @@ class Solution:
         graph = defaultdict(list)
         for u, v, w in flights:
             graph[u].append((v, w))
-
         dist = [float('inf')] * n
         dist[src] = 0
-
         q = deque([(src, 0)])
         stops = 0
-
         while q and stops <= k:
             for _ in range(len(q)):
                 node, cost = q.popleft()
