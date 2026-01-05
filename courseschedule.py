@@ -25,3 +25,4 @@ class Solution:
 
         # If we processed all courses, no cycle exists
         return taken == numCourses
+    

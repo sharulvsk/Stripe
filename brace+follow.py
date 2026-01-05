@@ -1,12 +1,10 @@
 def expand_string(inp: str):
     output = []
-
     open_idx = inp.find('{')
     close_idx = inp.find('}')
     if open_idx == -1 or close_idx == -1 or close_idx < open_idx:
         output.append(inp)
         return output
-
     pre = inp[:open_idx]
     suf = inp[close_idx + 1:]
     middle = inp[open_idx + 1:close_idx]
@@ -20,8 +18,6 @@ def expand_string(inp: str):
         output.append(pre + p + suf)
 
     return output
-
-
 def main():
     inp = input().strip()
     result = expand_string(inp)
